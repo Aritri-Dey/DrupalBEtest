@@ -1,0 +1,42 @@
+<?php 
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function word_trimmer_field_formatter_info() {
+  return [
+    'trim_to_50_words' => [
+      'label' => t('Trim to 50 Words'),
+      'field types' => ['text_with_summary'], 
+    ],
+  ];
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function word_trimmer_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = [];
+  foreach ($items as $delta => $item) {
+    // Load the full content of the body field
+    $body = $item['value'];
+    
+    // Trim the body to 50 words
+    $trimmed_body = trim_text($body, 50);
+
+    $element[$delta] = [
+      '#markup' => $trimmed_body,
+      '#allowed_tags' => $item['format'], 
+    ];
+  }
+  return $element;
+}
+
+/**
+ * Custom function to trim text to a specified word limit.
+ */
+function trim_text($text, $word_limit) {
+  $words = preg_split('/\s+/', $text);
+  $trimmed_words = array_slice($words, 0, $word_limit);
+  return implode(' ', $trimmed_words);
+}

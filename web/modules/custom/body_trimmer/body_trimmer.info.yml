@@ -1,0 +1,8 @@
+name: 'Body Trimmer Module'
+type: module
+core_version_requirement: ^9 || ^10
+description: 'Javascript api.'
+package: 'custom'
+configure: body_trimmer.settings_form
+libraries:
+  - body_trimmer/trimmer-js

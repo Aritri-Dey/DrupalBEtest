@@ -1,0 +1,7 @@
+<?php 
+function body_trimmer_preprocess_node(array &$variables) {
+    $node = $variables['node'];
+    if(($node->getType() == 'product')) {
+      $variables['#attached']['library'][] = 'body_trimmer/trimmer-js';
+    }
+}
