@@ -1,0 +1,15 @@
+uuid: 0c6e4e19-993a-452d-b0af-6153cef02e6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.product
+  module:
+    - node
+id: content_admin
+label: 'Content admin'
+weight: 5
+is_admin: null
+permissions:
+  - 'create product content'
+  - 'edit any product content'
