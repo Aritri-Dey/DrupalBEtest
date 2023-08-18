@@ -1,0 +1,6 @@
+name: 'Word Trimmer Module'
+type: module
+core_version_requirement: ^9 || ^10
+description: 'Custom module to add  custom field formatter.'
+package: 'custom'
+configure: word_trimmer.settings_form

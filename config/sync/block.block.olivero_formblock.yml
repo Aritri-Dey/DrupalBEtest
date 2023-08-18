@@ -1,0 +1,36 @@
+uuid: ef32ebc2-961d-4839-ab79-502f27ae4eb2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - product_module
+    - user
+  theme:
+    - olivero
+id: olivero_formblock
+theme: olivero
+region: content_below
+weight: 0
+provider: null
+plugin: form_block
+settings:
+  id: form_block
+  label: 'Form block'
+  label_display: '0'
+  provider: product_module
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      product: product
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

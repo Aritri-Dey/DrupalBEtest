@@ -1,0 +1,42 @@
+<?php 
+/**
+ * This file demonstrates all implemented hooks.
+*/
+
+/**
+* Implements hook_cron().
+*/
+function product_module_cron() {
+  \Drupal::messenger()->addMessage(t("Hello from Product module cron hook!!"));
+}
+
+/**
+ * Implements hook_theme().
+ */
+function product_module_theme($existing, $type, $theme, $path) {
+  return [
+    'api_view' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+    ],
+  ];
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function product_module_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  \Drupal::messenger()->addMessage(t("Form id of this form is @id:",['@id' => $form_id]));
+  $controller = \Drupal::classResolver()->getInstanceFromDefinition('Drupal\product_module\Controller\ProductController');
+  $check = $controller->checkRole();
+  if($form_id === 'user_form'){
+    if ($check) {
+      $form['parent'] = [
+        '#type' => 'textfield',
+        '#title' => t('Address'),
+      ];
+    }
+  }
+}
