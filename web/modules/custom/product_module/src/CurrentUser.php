@@ -32,4 +32,11 @@ class CurrentUser {
   public function getRole() {
     return $this->currentUser->getRoles();
   }
+
+   /**
+   * Function to get username of the current user.
+   */
+  public function getUsername() {
+    return $this->currentUser->getAccountName();
+  }
 }

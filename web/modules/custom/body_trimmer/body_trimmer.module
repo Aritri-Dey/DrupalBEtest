@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Implements hook_preprocess_node().
+ */
 function body_trimmer_preprocess_node(array &$variables) {
     $node = $variables['node'];
     if(($node->getType() == 'product')) {

@@ -6,3 +6,11 @@ product_module.apicall:
   requirements:
     _permission: 'access content'
     
+product_module.admin:
+  path: '/product_module'
+  defaults: 
+    _controller: '\Drupal\product_module\Controller\ProductController::menu'
+    _title: 'Thank You'
+  requirements: 
+    _permission: 'access content'
+    _role: authenticated

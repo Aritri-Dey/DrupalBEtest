@@ -23,6 +23,8 @@
         "drupal/core-project-message": "^10.1",
         "drupal/core-recommended": "^10.1",
         "drupal/devel": "^5.1",
+        "drupal/fontawesome_menu_icons": "^2.0",
+        "drupal/menu_items_visibility": "^1.1",
         "drupal/paragraphs": "^1.15",
         "drupal/smtp": "^1.2",
         "drupal/twig_tweak": "^3.2",
